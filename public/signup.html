@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>	
+		<link rel="stylesheet" href="css/normalize.css">
+		<link rel="stylesheet" href="css/style.css">
+
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+		<script>
+
+		</script>
+		<style>
+			label {
+				display: inline-block;
+				width: 160px;
+				text-align: left;
+			}
+			ul, li {
+				list-style: none;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="fb-root"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+		    // init the FB JS SDK
+		    FB.init({
+		      appId      : '168743333298978',                        // App ID from the app dashboard
+		      status     : true,                                 // Check Facebook Login status
+		      xfbml      : true                                  // Look for social plugins on the page
+		    });
+
+
+		    FB.login(function(response) {
+		      if (response.authResponse) {
+		        console.log('Welcome!  Fetching your information.... ');
+		        FB.api('/me', function(response) {
+		          console.log('Good to see you, ' + response.name + '.');
+		        });
+		      } else {
+		        console.log('User cancelled login or did not fully authorize.');
+		      }
+		    });
+		  };
+
+
+
+		  // Load the SDK asynchronously
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/all.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
+
+		<h1>Sign Up for this awesome app!</h1>
+		<form>
+			<ul>
+				<li>
+					<label for="name">Name</label>
+					<input id="name" type="text" placeholder="e.g. John Smith"/>
+				</li>
+				<li>
+					<label for="degree">B.S. Degree</label>
+					<input id="degree" type="checkbox"/>
+				</li>
+				<li>
+					<label for="summary">Bio</label>
+					<textarea id="summary">this is the value</textarea>
+				</li>
+				<li>
+					<label for="favcolor">Favorite Color</label>
+					<input id="favcolor" type="color"/>
+				</li>
+				<li>
+					<label for="password">Password</label>
+					<input id="password" type="password"/>
+				</li>
+				<li>
+					<label for="ready">Are you Ready?</label>
+					<select>
+						<option value="0">No :(</option>
+						<option value="1">Yep!</option>
+					</select>
+				</li>
+				<li>
+					<input type="submit" value="save &amp; continue" />
+				</li>
+
+		</form>
+	</body>
+</html>
