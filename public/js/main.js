@@ -2,7 +2,8 @@ $(document).ready(function(){
 
 	$.ajax('/api/resumes',{
 		complete : function (response){	
-			resumes = response.responseJSON;	
+			resumes = response;
+			console.log(resumes);
 		}
 	});
 
@@ -14,7 +15,7 @@ $(document).ready(function(){
 			/* Name */
 			$('#name').html(response.responseJSON.name_first + ' ' + response.responseJSON.name_last);
 
-			
+
 
 			/* Experience */
 			for (i=0; i<response.responseJSON.experience.length; i++)
@@ -22,7 +23,7 @@ $(document).ready(function(){
 				var job = response.responseJSON.experience[i];
 				/* appending html - */
 				$('#workExp').append("<div class='workInfo'>"+
-										"<table border='1'>"+
+										"<table border='1' class='table-striped'>"+
 											"<tr><td>Employer</td><td id='organization" + i + "'></td></tr>"+
 											"<tr><td>Location</td><td id='location" + i +"'></td></tr>"+
 											"<tr><td>Position</td><td id='role" + i +"'></td></tr>"+
@@ -30,7 +31,7 @@ $(document).ready(function(){
 											"<tr><td>Start Date</td><td id='start_date" + i +"'></td></tr>"+
 											"<tr><td>End Date</td><td id='end_date" + i +"'></td></tr>"+
 											"<tr><td>Responsiblities</td><td id='responsibilities" + i +"'></td></tr>"+
-											"<tr><td>Achievements</td><td></td></tr></table></div>");
+											"</table></div>");
 
 
 
@@ -47,7 +48,8 @@ $(document).ready(function(){
 				var resps = '';
 				for (k=0; k<job.responsibilities.length; k++){
 					resps += job.responsibilities[k];
-					resps += ', ';
+					if (! (k === job.responsibilities.length-1))
+						resps += ', ';
 				}
 				$('#responsibilities' + i).html(resps);		
 
@@ -59,7 +61,7 @@ $(document).ready(function(){
 				var school = response.responseJSON.schools[i];
 
 				$('#education').append("<div class='workInfo'>"+
-							"<table border='1'>"+
+							"<table border='1' class='table-striped'>"+
 								"<tr><td>SCHOOL</td><td id='school" + i + "'></td></tr>"+
 								"<tr><td>MAJOR</td><td id='major" + i +"'></td></tr>"+
 								"<tr><td>MINOR</td><td id='minor" + i +"'></td></tr>"+
@@ -88,7 +90,7 @@ $(document).ready(function(){
 				var skill = response.responseJSON.skill[i];
 
 				$('#skills').append("<div class='workInfo'>"+
-							"<table border='1'>"+
+							"<table border='1' class='table-striped'>"+
 								"<tr><td>CATEGORY</td><td id='skill_category" + i + "'></td></tr>"+
 								"<tr><td>SKILL TITLE</td><td id='skill_experience" + i +"'></td></tr>"+
 								"<tr><td>EXPERIENCE</td><td id='skill_title" + i +"'></td></tr></table></div>"); /* end education append html */
@@ -100,7 +102,8 @@ $(document).ready(function(){
 				$('#skill_experience' + i).html(skill.experience);
 
 				
-			}
+			}  /* end skills */
+
 
 
 							

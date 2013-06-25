@@ -3,26 +3,27 @@
 	<head>	
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+
 	</head>
 	<body>
 		<section id="wrapper">
 			<div id="res-heading" class="clearfix">
 				<div id="contactInfo" class="headerBoxes border">
 					<div id="phoneNumber">(631)355-6566</div>
-					<div id="address">
+					<address id="address">
 						<div id="street">130 Millet St.</div>
 						<div id="city_state_zip">
 							<div id="city">Dix Hills</div>
 							<div>,</div>
 							<div id="state">NY</div>
 							<div id="zip">11746</div>
-						</div>
-						
-					</div>
-				</div>
+						</div> <!-- end id city_state_zip div -->
+					</address>
+				</div><!-- end id contactInfo Div -->
 				<div id="nameAndTitle" class="headerBoxes border">
 					<div id="name">Joshua Book</div>
 					<div id="title">Bad Ass Motherfucker</div>
@@ -71,15 +72,13 @@
 				</div>
 
 				<!-- Resume Viewer  -->
-				<div id="resumeViewer" class="border mainBoxes">
-					<div id="resumeViewHeader">
-							<ul>
-								<li><a href="#workExp">Work Exp</a></li>
-							    <li><a href="#education">Education</a></li>
-							    <li><a href="#skills">Skills</a></li>
+				<div id="resumeViewer" class="border mainBoxes tabbable" >
+							<ul class="nav nav-tabs">
+								<li><a href="#workExp" data-toggle="tab">Work Exp</a></li>
+							    <li><a href="#education" data-toggle="tab">Education</a></li>
+							    <li><a href="#skills" data-toggle="tab">Skills</a></li>
+							    <li><a href="#accomplishments" data-toggle="tab">Accomplishments</a></li>
 							</ul>
-						
-					</div> <!-- end resumeViewHeader id div -->
 
 					<div id="workExp" class="viewBox">
 						<h2>Experience</h2>
@@ -89,6 +88,9 @@
 					</div>
 					<div id="skills" class="viewBox">
 						<h2>Skills</h2>
+					</div>
+					<div id="accomplishments" class="viewBox">
+						<h2>Accomplishments</h2>
 					</div>
 					
 

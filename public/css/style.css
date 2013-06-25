@@ -25,7 +25,15 @@ body {
 .clearfix {
 	display: inline-block;
 }
- 
+
+/* HEADER */ 
+#header{
+	background-color: #4DB870;
+	text-align: center;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+
+}
 
 /* HEADING */
 
@@ -179,11 +187,6 @@ body {
 #resumeViewer {
 	width: 450px;
 	position: relative;
-	-moz-box-shadow:    20px 0px 25px -5px #FFC2E0;
-	-webkit-box-shadow: 20px 0px 25px -5px #FFC2E0;
-	box-shadow:         20px 0px 25px -5px #FFC2E0;
-
-
 }
 
 #resumeViewHeader {
@@ -242,8 +245,7 @@ body {
 }
 
 #workExp {
-	background-color: #FFC2E0;
-
+	background-color: #bbb;
 }
 
 .workInfo {
@@ -259,15 +261,19 @@ body {
 }
 
 #education {
-	background-color: #FFFFC2;
+	background-color: #bbb;
 }
 
 
 #skills {
-	background-color: #D6FFD6;
+	background-color: #bbb;
 }
 
-#workExp:target, #education:target, #skills:target {
+#accomplishments {
+	background-color: #bbb;
+}
+
+#workExp:target, #education:target, #skills:target, #accomplishments:target {
 	z-index: 2;
 }
 

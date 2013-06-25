@@ -3,9 +3,10 @@
 	<head>	
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/bootstrap.css">
 
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/signup.js"></script>
 		<script>
 
 		</script>
@@ -24,7 +25,7 @@
 
 		<div id="fb-root"></div>
 		<script>
-		  window.fbAsyncInit = function() {
+		  /*window.fbAsyncInit = function() {
 		    // init the FB JS SDK
 		    FB.init({
 		      appId      : '168743333298978',                        // App ID from the app dashboard
@@ -32,16 +33,21 @@
 		      xfbml      : true                                  // Look for social plugins on the page
 		    });
 
-
-		    FB.login(function(response) {
-		      if (response.authResponse) {
+		    function cb_login(response){
+		    	  if (response.authResponse) {
 		        console.log('Welcome!  Fetching your information.... ');
 		        FB.api('/me', function(response) {
-		          console.log('Good to see you, ' + response.name + '.');
+		          $('#nameInput').val(response.name);
+		          console.log(response);
 		        });
 		      } else {
 		        console.log('User cancelled login or did not fully authorize.');
-		      }
+		      } 
+		    }
+
+		    FB.login(cb_login, {
+		      	scope: 'email,user_likes'
+
 		    });
 		  };
 
@@ -54,43 +60,359 @@
 		     js = d.createElement(s); js.id = id;
 		     js.src = "//connect.facebook.net/en_US/all.js";
 		     fjs.parentNode.insertBefore(js, fjs);
-		   }(document, 'script', 'facebook-jssdk'));
+		   }(document, 'script', 'facebook-jssdk'));*/
 		</script>
 
 
-		<h1>Sign Up for this awesome app!</h1>
-		<form>
-			<ul>
-				<li>
-					<label for="name">Name</label>
-					<input id="name" type="text" placeholder="e.g. John Smith"/>
-				</li>
-				<li>
-					<label for="degree">B.S. Degree</label>
-					<input id="degree" type="checkbox"/>
-				</li>
-				<li>
-					<label for="summary">Bio</label>
-					<textarea id="summary">this is the value</textarea>
-				</li>
-				<li>
-					<label for="favcolor">Favorite Color</label>
-					<input id="favcolor" type="color"/>
-				</li>
-				<li>
-					<label for="password">Password</label>
-					<input id="password" type="password"/>
-				</li>
-				<li>
-					<label for="ready">Are you Ready?</label>
-					<select>
-						<option value="0">No :(</option>
-						<option value="1">Yep!</option>
-					</select>
-				</li>
-				<li>
-					<input type="submit" value="save &amp; continue" />
-				</li>
+<!-- HEADER -->
+		<div id="header" class="container">
+			<h1>Resume Magician</h1>
+		</div>
+
+
+		<form class="form-horizontal" id="user-data-entry">
+			
+<!-- SIGN UP FORMS -->
+
+<!-- Sign Up Info -->
+			<fieldset name="signup_info" class="container">
+				<legend>Sign Up</legend>
+
+				<div class="control-group" name="user_account_name">
+					<label class="control-label" for="signup_name">User Name</label>
+					<div class="controls">
+						<input  id="signup_name" type="text" placeholder="e.g. first name last name" />
+					</div>
+				</div> <!-- end control group signup name -->
+
+				<div class="control-group" name="password">
+					<label class="control-label" for="password">Password</label>
+					<div class="controls">
+						<input  id="password" type="password" />
+					</div>
+				</div> <!-- end control group signup name -->
+				<span class="help-block">Enter your user account name and password</span>
+			</fieldset> <!-- end sign up info fieldset -->
+
+
+<!-- CONCTACT INFO -->
+			<fieldset name="contact_info" class="container">
+
+				<legend>Add Your Contact Info</legend>
+				<div class="well">
+
+					<div class="control-group" name="first_name">
+						<label class="control-label" for="first_name">First Name</label>
+						<div class="controls">
+							<input  id="first_name" type="text" placeholder="e.g. John" />
+						</div>
+					</div> <!-- end control group first name -->
+
+					<div class="control-group" name="last_name">
+						<label class="control-label" for="last_name">Last Name</label>
+						<div class="controls">
+							<input  id="last_name" type="text" placeholder="e.g. Doe" />
+						</div>
+					</div> <!-- end control group last name -->
+
+					<div class="control-group" name="email">
+						<label class="control-label" for="email">Email</label>
+						<div class="controls">
+							<input  id="email" type="text" placeholder="e.g. johndoe@email.com" />
+						</div>
+					</div> <!-- end control group signup name -->
+
+					<div class="control-group" name="phone">
+						<label class="control-label" for="phone">Phone</label>
+						<div class="controls">
+							<input  id="phone" type="text" placeholder="333-333-3333" />
+						</div>
+					</div> <!-- end control group signup name -->
+
+					<div class="control-group" name="street">
+						<label class="control-label" for="street">Street</label>
+						<div class="controls">
+							<input  id="street" type="text" placeholder="123 Main St." />
+						</div>
+					</div> <!-- end control group signup name -->
+
+					<div class="control-group" name="city">
+						<label class="control-label" for="city">City</label>
+						<div class="controls">
+							<input  id="city" type="text" />
+						</div>
+					</div> <!-- end control group signup name -->
+
+					<div class="control-group" name="state">
+						<label class="control-label" for="state">State</label>
+						<div class="controls">
+							<input  id="state" type="text" />
+						</div>
+					</div> <!-- end control group signup name -->
+
+					<div class="control-group" name="zipcode">
+						<label class="control-label" for="zipcode">Zipcode</label>
+						<div class="controls">
+							<input  id="zipcode" type="text" placeholder="123 Main St." />
+						</div>
+					</div> <!-- end control group signup name -->
+		
+				</div>
+
+			</fieldset> <!-- end contact info fieldset -->
+
+
+<!-- WORK HISTORY -->
+
+			<fieldset name="work_history" class="container work_history">
+
+				<legend>Add Your Work History</legend>
+
+				<div class="employer_block well">
+
+					<div class="control-group" name="employer">
+						<label class="control-label" for="employer">Employer</label>
+						<div class="controls">
+							<input  class="employer" type="text" placeholder="e.g. Barclays" />
+						</div>
+					</div> <!-- end control group employer -->
+
+					<div class="control-group" name="location">
+						<label class="control-label" for="location">Location</label>
+						<div class="controls">
+							<input  class="location" type="text" placeholder="e.g. London" />
+						</div>
+					</div> <!-- end control group location -->
+
+
+					<div class="control-group" name="position">
+						<label class="control-label" for="position">Position</label>
+						<div class="controls">
+							<input  class="position" type="text" placeholder="e.g. Manager" />
+						</div>
+					</div> <!-- end control group position -->
+
+
+					<div class="control-group" name="project">
+						<label class="control-label" for="project">Project</label>
+						<div class="controls">
+							<input  class="project" type="text" placeholder="e.g. redesign of homepage" />
+						</div>
+					</div> <!-- end control group project -->
+
+
+					<div class="control-group" name="start_date_ex">
+						<label class="control-label" for="start_date_ex">Start Date</label>
+						<div class="controls">
+							<input  class="start_date_ex" type="month" placeholder="e.g. Barclays" />
+						</div>
+					</div> <!-- end control group start date -->
+
+					<div class="control-group" name="end_date_ex">
+						<label class="control-label" for="end_date_ex">End Date</label>
+						<div class="controls">
+							<input  class="end_date_ex" type="month" placeholder="e.g. Barclays" />
+						</div>
+					</div> <!-- end control group end date -->
+
+					<div class="control-group" name="responsibilities">
+						<label class="control-label" for="responsibilities">Responsibilities</label>
+						<div class="controls">
+							<input  class="responsibilities" type="text" placeholder="e.g. redesign of homepage" />
+						</div>
+					</div> <!-- end control group project -->
+					<span class="help-block control-lable">Enter each responsiblity separated by a comma</span>
+
+				</div> <!-- end employer block -->
+			
+			<!-- add another employer -->
+			<span id="addEmployer" class="help-block">
+				<a href="#" class="employer_block_add">add another employer</a>
+			</span>
+
+			</fieldset> <!-- end work history fieldset -->
+
+
+<!-- EDUCATION HISTORY -->
+			<fieldset name="education_history" class="container education_history">
+
+			<legend>Add Your Education History</legend>
+				
+				<div class="education_block well">
+					<div class="control-group" name="school">
+						<label class="control-label" for="school">School</label>
+						<div class="controls">
+							<input  class="school" type="text" placeholder="e.g. Hogwarts" value="hello"/>
+						</div>
+					</div> <!-- end control group school -->
+
+					<div class="control-group" name="major">
+						<label class="control-label" for="major">Major</label>
+						<div class="controls">
+							<input  class="major" type="text" placeholder="e.g. invisibility" />
+						</div>
+					</div> <!-- end control group major -->
+
+					<div class="control-group" name="minor">
+						<label class="control-label" for="minor">Minor</label>
+						<div class="controls">
+							<input  class="minor" type="text" placeholder="e.g. levitation" />
+						</div>
+					</div> <!-- end control group minor -->
+
+					<div class="control-group" name="degree">
+						<label class="control-label" for="degree">Degree</label>
+						<div class="controls">
+							<input  class="degree" type="text" placeholder="e.g. potions" />
+						</div>
+					</div> <!-- end control group degree -->
+
+					<div class="control-group" name="start_date_ed">
+						<label class="control-label" for="start_date">Start Date</label>
+						<div class="controls">
+							<input  class="start_date_ed" type="month" placeholder="e.g. Barclays" />
+						</div>
+					</div> <!-- end control group start date -->
+
+					<div class="control-group" name="end_date_ed">
+						<label class="control-label" for="end_date_ed">End Date</label>
+						<div class="controls">
+							<input  class="end_date_ed" type="month" placeholder="e.g. Barclays" />
+						</div>
+					</div> <!-- end control group end date -->
+
+
+					<div class="control-group" name="gpa">
+						<label class="control-label" for="gpa">GPA</label>
+						<div class="controls">
+							<input  class="gpa" type="range" min="0" max="4" value="0" step=".05" onchange="showValue(this.value)" placeholder="e.g. 4.0" />
+						</div>
+						<span style="margin-left: 125px" id="gpa_slider">0</span>
+						<script type="text/javascript">
+						function showValue(newValue)
+						{
+							document.getElementById("gpa_slider").innerHTML=newValue;
+						}
+						</script>
+					</div> <!-- end control group gpa -->
+				</div> <!-- end class education_block -->
+
+
+				<!-- add another school -->
+				<span id="addSchool" class="help-block">
+					<a href="#" class="education_block_add">add another school</a>
+				</span>
+
+
+			</fieldset> <!-- end education field set -->
+
+
+
+			<fieldset name="skills" class="container">
+
+				<legend>Add Your Skills </legend>
+
+				<div class="skill_block well">
+
+					<div class="control-group" name="skill">
+						<label class="control-label" for="skill">Skill</label>
+						<div class="controls">
+							<input  id="skill" type="text" placeholder="e.g. Hogwarts" />
+						</div>
+					</div> <!-- end control group skill -->
+
+					<div class="control-group" name="category">
+						<label class="control-label" for="category">Category</label>
+						<div class="controls">
+							<select id="category">
+							  <option>Managerial/Leadership/Communication</option>
+							  <option>Software/Web/Mobile</option>
+							  <option>Business/Accounting</option>
+							  <option>Sales/Marketing</option>
+							  <option>Production</option>
+							</select>
+						</div>
+					</div> <!-- end control group category -->
+
+					<div class="control-group" name="yrs_skill_exp">  
+						<label class="control-label" for="yrs_skill_exp">Years Experienced</label>
+						<div class="controls">
+							<input  id="yrs_skill_exp" type="text" placeholder="e.g. Hogwarts" />
+						</div>
+					</div> <!-- end control group yrs_skill_exp -->
+
+				</div><!-- end class skill_block -->
+
+				<!-- add another skill -->
+				<span id="addSkill" class="help-block">
+					<a href="#" class="skill_block_add">add another skill</a>
+				</span>
+
+			</fieldset> <!-- end skills field set -->
+
+
+
+
+			<fieldset name="accomplishments" class="container">
+
+				<legend>Add Your Accomplishments and Achievements </legend>
+
+				<div class="accomplishment_block well">
+
+					<div class="control-group" name="accomplishment">
+						<label class="control-label" for="accomplishment">Accomplishment</label>
+						<div class="controls">
+							<input  id="accomplishment" type="text" />
+						</div>
+					</div> <!-- end control group skill -->
+
+					<div class="control-group" name="accomp_descrip">
+						<label class="control-label" for="accomp_descrip">Description</label>
+						<div class="controls">
+							<textarea id="accomp_descrip" type="text" rows='3' placeholder="e.g. won a gold medal at 84 Olympic games"></textarea>
+						</div>
+					</div> <!-- end control group accomp_descrip -->
+
+					<div class="control-group" name="date_accomp">
+						<label class="control-label" for="date_accomp">Date</label>
+						<div class="controls">
+							<input  id="date_accomp" type="month" />
+						</div>
+					</div> <!-- end control group start date -->
+
+				</div> <!-- end class accomplishment_block -->
+
+				<!-- add another accomplishment -->
+				<span id="addAccomplishment" class="help-block">
+					<a href="#" class="accomplishment_block_add">add another accomplishment</a>
+				</span>
+
+			</fieldset> <!-- end fieldset accomplishments -->
+
+
+
+			<div class="container" style="margin: 30px auto; width: 600px;"><input class="btn btn-large btn-block btn-primary" type="submit" value="save &amp; continue" /></div>
+		</form>	
+
+
+
+
+				
+					
+				
+		
+			
+
+
+
+
+
+
+			</fieldset>
+
+
+
+
 
 		</form>
 	</body>
