@@ -286,14 +286,14 @@
 						<label class="control-label" for="gpa">GPA</label>
 						<div class="controls">
 							<input  class="gpa" type="range" min="0" max="4" value="0" step=".05" onchange="showValue(this.value)" placeholder="e.g. 4.0" />
-						</div>
-						<span style="margin-left: 125px" id="gpa_slider">0</span>
-						<script type="text/javascript">
-						function showValue(newValue)
-						{
-							document.getElementById("gpa_slider").innerHTML=newValue;
-						}
+							<span style="margin-left: 125px" id="gpa_slider">0</span>
+							<script type="text/javascript">
+							function showValue(newValue)
+							{
+								document.getElementById("gpa_slider").innerHTML=newValue;
+							}
 						</script>
+						</div>
 					</div> <!-- end control group gpa -->
 				</div> <!-- end class education_block -->
 
@@ -317,14 +317,14 @@
 					<div class="control-group" name="skill">
 						<label class="control-label" for="skill">Skill</label>
 						<div class="controls">
-							<input  id="skill" type="text" placeholder="e.g. Hogwarts" />
+							<input  class="skill" type="text" placeholder="e.g. Hogwarts" />
 						</div>
 					</div> <!-- end control group skill -->
 
 					<div class="control-group" name="category">
 						<label class="control-label" for="category">Category</label>
 						<div class="controls">
-							<select id="category">
+							<select class="category">
 							  <option>Managerial/Leadership/Communication</option>
 							  <option>Software/Web/Mobile</option>
 							  <option>Business/Accounting</option>
@@ -337,7 +337,7 @@
 					<div class="control-group" name="yrs_skill_exp">  
 						<label class="control-label" for="yrs_skill_exp">Years Experienced</label>
 						<div class="controls">
-							<input  id="yrs_skill_exp" type="text" placeholder="e.g. Hogwarts" />
+							<input  class="yrs_skill_exp" type="text" placeholder="e.g. Hogwarts" />
 						</div>
 					</div> <!-- end control group yrs_skill_exp -->
 

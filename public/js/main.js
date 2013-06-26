@@ -1,30 +1,31 @@
 $(document).ready(function(){
 
-	$.ajax('/api/resumes',{
+/*	$.ajax('/api/resumes',{
 		complete : function (response){	
 			resumes = response;
-			console.log(resumes);
 		}
-	});
+	}); */
 
 
 	$.ajax('/api/resumes/51c2085576eebd4918000001',{
 		complete : function (response){	
-			console.log(response.responseJSON);		
+			/*console.log(response.responseJSON);	*/	
 
-			/* Name */
+			/* NAME */
 			$('#name').html(response.responseJSON.name_first + ' ' + response.responseJSON.name_last);
 
 
+			/*ADDRESS */
 
-			/* Experience */
+
+			/* EXPERIENCE  */
 			for (i=0; i<response.responseJSON.experience.length; i++)
 			{
 				var job = response.responseJSON.experience[i];
 				/* appending html - */
-				$('#workExp').append("<div class='workInfo'>"+
-										"<table border='1' class='table-striped'>"+
-											"<tr><td>Employer</td><td id='organization" + i + "'></td></tr>"+
+				$('#workExp').append("<div class='workInfo resInfo'>"+
+										"<table border=1>"+
+											"<tr><td>Employer</td><td id='organization" + i + "'class='hover'></td></tr>"+
 											"<tr><td>Location</td><td id='location" + i +"'></td></tr>"+
 											"<tr><td>Position</td><td id='role" + i +"'></td></tr>"+
 											"<tr><td>Project</td><td id='project" + i +"'></td></tr>"+
@@ -60,8 +61,8 @@ $(document).ready(function(){
 				
 				var school = response.responseJSON.schools[i];
 
-				$('#education').append("<div class='workInfo'>"+
-							"<table border='1' class='table-striped'>"+
+				$('#education').append("<div class='educationInfo resInfo'>"+
+							"<table border='1'>"+
 								"<tr><td>SCHOOL</td><td id='school" + i + "'></td></tr>"+
 								"<tr><td>MAJOR</td><td id='major" + i +"'></td></tr>"+
 								"<tr><td>MINOR</td><td id='minor" + i +"'></td></tr>"+
@@ -89,7 +90,7 @@ $(document).ready(function(){
 				
 				var skill = response.responseJSON.skill[i];
 
-				$('#skills').append("<div class='workInfo'>"+
+				$('#skills').append("<div class='skillInfo resInfo '>"+
 							"<table border='1' class='table-striped'>"+
 								"<tr><td>CATEGORY</td><td id='skill_category" + i + "'></td></tr>"+
 								"<tr><td>SKILL TITLE</td><td id='skill_experience" + i +"'></td></tr>"+
@@ -104,6 +105,10 @@ $(document).ready(function(){
 				
 			}  /* end skills */
 
+
+			$('.hover').hover(function(){
+				hover_tag_add();
+			});
 
 
 							

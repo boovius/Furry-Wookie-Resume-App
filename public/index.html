@@ -7,6 +7,7 @@
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
+		<script type="text/javascript" src="js/viewer.js"></script>
 
 	</head>
 	<body>
@@ -54,56 +55,46 @@
 <!-- MAIN -->
 
 
-			<div id="main" class="clearfix" class="border">
-				
-				<!-- Filter Box -->
-				<div id="filterBox" class="border mainBoxes"><h2>FILTER RESULTS</h2>
-					<div align="center"><br>
-						<h3>Skill Set</h3>
-						<input type="radio" name="group1" value="BugKilling"> Bug Killing <br>
-						<input type="radio" name="group1" value="Zapping" checked> Zapping<br>
-						<input type="radio" name="group1" value="Vacumming"> Vacumming
-						<hr>
-						<input type="radio" name="group2" value="PublicSpeaking"> Public Speaking<br>
-						<input type="radio" name="group2" value="ConsensusBuilding"> Consensus Building<br>
-						<input type="radio" name="group2" value="DrinkingInPublic" checked> Drinking In Public<br>
-					</div>
+<!-- Resume Viewer  -->
 
-				</div>
+			<div id="main" class="clearfix border">
+				<div class="border tabbable tabs-left span8">
+					<ul class="nav nav-tabs">
+						<li><a href="#workExp" data-toggle="tab">Work Exp</a></li>
+					    <li><a href="#education" data-toggle="tab">Education</a></li>
+					    <li><a href="#skills" data-toggle="tab">Skills</a></li>
+					    <li><a href="#accomplishments" data-toggle="tab">Accomplishments</a></li>
+					</ul>
+					<div id="resumeViewer" class="border mainBox tabbable tab-content" >
 
-				<!-- Resume Viewer  -->
-				<div id="resumeViewer" class="border mainBoxes tabbable" >
-							<ul class="nav nav-tabs">
-								<li><a href="#workExp" data-toggle="tab">Work Exp</a></li>
-							    <li><a href="#education" data-toggle="tab">Education</a></li>
-							    <li><a href="#skills" data-toggle="tab">Skills</a></li>
-							    <li><a href="#accomplishments" data-toggle="tab">Accomplishments</a></li>
-							</ul>
-
-					<div id="workExp" class="viewBox">
-						<h2>Experience</h2>
-					</div>
-					<div id="education" class="viewBox">
-						<h2>Education</h2>
-					</div>
-					<div id="skills" class="viewBox">
-						<h2>Skills</h2>
-					</div>
-					<div id="accomplishments" class="viewBox">
-						<h2>Accomplishments</h2>
-					</div>
+						<div id="workExp" class="viewBoxes">
+							<h2>Experience</h2>
+						</div>
+						<div id="education" class="viewBoxes">
+							<h2>Education</h2>
+						</div>
+						<div id="skills" class="viewBoxes">
+							<h2>Skills</h2>
+						</div>
+						<div id="accomplishments" class="viewBox">
+							<h2>Accomplishments</h2>
+						</div>
+					</div> <!-- end Resume Viewer Div -->
+				</div> <!-- end class tabbable tabs-left -->
+	
+				<div id="tagBox" class="border span3 mainBoxes">
+					<h2>TAGS:</h2>
 					
+				</div> 
 
-
-
-				</div> <!-- end Resume Viewer Div -->
-
-
-				<!-- Notes Box -->
-				<div id="notesBox" class="border mainBoxes">
+<!-- Notes Box -->
+				<div id="notesBox" class="border span12 mainBox">
 					<h2>NOTES:</h2>
 					<textarea></textarea> 
 				</div> 
+			
+
+
 			</div> <!-- end main -->
 
 		</div> <!-- end wrapper -->

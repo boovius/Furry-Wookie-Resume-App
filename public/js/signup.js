@@ -6,6 +6,7 @@ $(document).ready(function(){
 		$(this).before(html);
 		html.fadeIn(1000);
 		html.slideDown(1400);
+		html.find('input').val('');
 		return false;
 	});
 
@@ -14,7 +15,9 @@ $(document).ready(function(){
 		var html = $('.education_block').first().clone();
 		html.css( {display: 'none'});
 		$(this).before(html);
-		html.slideDown(600);
+		html.fadeIn(1000);
+		html.slideDown(1400);
+		html.find('input').val('');
 		return false;
 	});
 
@@ -22,7 +25,9 @@ $(document).ready(function(){
 		var html = $('.skill_block').first().clone();
 		html.css( {display: 'none'});
 		$(this).before(html);
-		html.slideDown(600);
+		html.fadeIn(1000);
+		html.slideDown(1400);
+		html.find('input').val('');
 		return false;
 	});
 
@@ -30,7 +35,9 @@ $(document).ready(function(){
 		var html = $('.accomplishment_block').first().clone();
 		html.css( {display: 'none'});
 		$(this).before(html);
-		html.slideDown(600);
+		html.fadeIn(1000);
+		html.slideDown(1400);
+		html.find('input').val('');
 		return false;
 	});
 
@@ -66,40 +73,28 @@ $(document).ready(function(){
 		console.log(userData.employers);
 
 
-		var education_blocks = $('.education_blocks');
-		education_blocks.each(function(index, school){
+		var education_blocks = $('.education_block');
+		education_blocks.each(function(index, this_school){
 			userData.schools.push({
-				'school' : $(this_school).find('input.school').val();
-				'degree' : $(this_school).find('input.degree').val();
-				'major'  : $(this_school).find('input.major').val();
-				'minor'  : $(this_school).find('input.minor').val();
-				'start'  : $(this_school).find('input.start_date_ed').val();
-				'end'    : $(this_school).find('input.end_date_ed').val();
-				'gpa'    : $(this_school).find('input.gpa').val();
+				'school' : $(this_school).find('input.school').val(),
+				'degree' : $(this_school).find('input.degree').val(),
+				'major'  : $(this_school).find('input.major').val(),
+				'minor'  : $(this_school).find('input.minor').val(),
+				'start'  : $(this_school).find('input.start_date_ed').val(),
+				'end'    : $(this_school).find('input.end_date_ed').val(),
+				'gpa'    : $(this_school).find('input.gpa').val()
 			});
 		});
 
-
-/*		var education_blocks = $('.education_block');
+		var skills_blocks = $('.skill_block');
+		education_blocks.each(function(index, skill){
+			userData.skills.push({
+				'skill' : $(skill).find('input.skill').val(),
+				'category' : $(skill).find('input.category').val(),
+				'yrs_skill_exp'  : $(skill).find('input.yrs_skill_exp').val()
+			});
+		});
 	
-		for(i=0; i<education_blocks.length; i++){
-			var school = {};
-			var this_school = education_blocks[i];
-
-			school['name']   = $(this_school).find('input.school').val();
-			school['degree'] = $(this_school).find('input.degree').val();
-			school['major'] =  $(this_school).find('input.major').val();
-			school['minor'] =  $(this_school).find('input.minor').val();
-			school['start'] =  $(this_school).find('input.start_date_ed').val();
-			school['end'] =    $(this_school).find('input.end_date_ed').val();
-			school['gpa'] =    $(this_school).find('input.gpa').val();
-			userData.schools.push(school);
-		}
-
-		console.log(userData.schools);*/
-
-		var education_blocks = $('.education_block');
-		
 		console.log(userData);
 
 

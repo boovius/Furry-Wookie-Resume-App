@@ -166,132 +166,79 @@ body {
 	background-color: #ccc;
 }
 
-.mainBoxes {
-	height: 400px;
-	width: 200px;
-	margin-left: 12px;
-	margin-right: 12px;
-	padding: 4px;
-	float: left;
-	overflow: auto;
-}
-
-/* filter box */
-
-#filterBox {
-	text-align: center;
-}
-
 /* Resume Viewer */
 
 #resumeViewer {
-	width: 450px;
 	position: relative;
+	height: 400px;
 }
 
-#resumeViewHeader {
-	width: 120%;
-	height: 50px;
-	background-color: black;
+.mainBox {
+	margin: 0 12px;
+	padding: 4px;
+	height: 100%;	
+	overflow: auto;
+}
+
+.viewBoxes {
 	position: absolute;
-	left: -5%;
-	z-index: 4;
-	text-align: center;
-}
-
-#resumeViewHeader a {
-	text-decoration: none;
-	color: black;
-	font-weight: bold;
-}
-
-#resumeViewHeader a:hover {
-	color: #ccc;
-}
-
-#resumeViewer ul {
-	list-style: none;
-}
-
-#resumeViewer div ul li {
-	float: left;
-	color: black;
-	font-size: 12px;
-	width: 65px;
-	height: 20px;
-	margin-right: 10px;
-}
-
-#resumeViewer div ul li:nth-child(odd) {
-	background-color: #f37736;
-}
-
-#resumeViewer div ul li:nth-child(even) {
-	background-color: #fdf498;
-}
-
-#resumeViewer div ul li:hover {
-	background-color: #00527A;
-}
-
-.viewBox {
-	position: absolute;
-	top: 40px;
-	left: 0;
+	background-color: #bbb;
+	top: 0px;
+	left: 0px;
 	height: 100%;
 	width: 100%;
 	z-index: 1;
 	overflow: scroll;	
 }
-
-#workExp {
-	background-color: #bbb;
-}
-
-.workInfo {
-	margin: 50px 30px;
-}
-
-.workInfo td:first-child {
+.viewBoxes table tr td:first-child {
 	font-weight: bold;
-	font-size: 16px;
-}
-.workInfo td:last-child {
-	text-align: left;
 }
 
-#education {
-	background-color: #bbb;
+.viewBoxes table tr:nth-child(even) {
+	background-color: #999;
 }
 
-
-#skills {
-	background-color: #bbb;
+.viewBoxes table tr:nth-child(odd) {
+	background-color: #aaa;
 }
 
-#accomplishments {
-	background-color: #bbb;
+.viewBoxes table tr td:last-child:hover {
+	background-color: #FF9696;
+	cursor: pointer;
 }
+
+.resInfo {
+	margin: 50px 30px;
+	
+}
+
 
 #workExp:target, #education:target, #skills:target, #accomplishments:target {
 	z-index: 2;
 }
 
-#workExp:target{
+/* TAGS box */
+
+.tag {
+	height: 100%;
+	width: 100%;
+	margin: 5px;
+	display: inline-block;
 	
+	background-color: #ddd;
+	border: 1px solid black;
+	border-radius: 5px;
+
+	text-align: center;
+	font-weight: bold;
 }
 
-#education:target{ 
-
-}
-#skills:target {
-
-}
 
 /* notes box */
 
 #notesBox textarea {
 	height: 100%;
+	width: 80%;
 }
 
 #notesBox textarea:focus {
