@@ -58,40 +58,71 @@ $(document).ready(function(){
 		userData['skills'] = [];
 		userData['accomplishments'] = [];
 
+		/*reading input from employer blocks*/
 		var employer_blocks = $('.employer_block');
 		employer_blocks.each(function(index, employer){
+			
+			var startDate = $(employer).find('input.start_date_ex').val();
+			var formattedStart = startDate.slice(5,7)+startDate.slice(2,4);			
+
+			var endDate = $(employer).find('input.end_date_ex').val();
+			var formattedEnd = endDate.slice(5,7)+endDate.slice(2,4);
+
 			userData.employers.push({
 				'employer' : $(employer).find('input.employer').val(),
 				'location' : $(employer).find('input.location').val(),
 				'position' : $(employer).find('input.position').val(),
 				'project' : $(employer).find('input.project').val(),
-				'start' : $(employer).find('input.start').val(),
-				'end' : $(employer).find('input.end').val(),
+				'start' : formattedStart,
+				'end' : formattedEnd,
 				'responsibilities' : $(employer).find('input.responsibilities').val()
 			});
 		});
 		console.log(userData.employers);
 
-
+		/*reading input from education blocks*/
 		var education_blocks = $('.education_block');
 		education_blocks.each(function(index, this_school){
+
+			var startDate      = $(this_school).find('input.start_date_ed').val();
+			var formattedStart = startDate.slice(5,7)+startDate.slice(2,4);			
+
+			var endDate      = $(this_school).find('input.end_date_ed').val();
+			var formattedEnd = endDate.slice(5,7)+endDate.slice(2,4);
+
 			userData.schools.push({
 				'school' : $(this_school).find('input.school').val(),
 				'degree' : $(this_school).find('input.degree').val(),
 				'major'  : $(this_school).find('input.major').val(),
 				'minor'  : $(this_school).find('input.minor').val(),
-				'start'  : $(this_school).find('input.start_date_ed').val(),
-				'end'    : $(this_school).find('input.end_date_ed').val(),
+				'start'  : formattedStart,
+				'end'    : formattedEnd,
 				'gpa'    : $(this_school).find('input.gpa').val()
 			});
 		});
 
+		/*reading input from skills blocks*/
 		var skills_blocks = $('.skill_block');
-		education_blocks.each(function(index, skill){
+		skills_blocks.each(function(index, skill){
 			userData.skills.push({
-				'skill' : $(skill).find('input.skill').val(),
-				'category' : $(skill).find('input.category').val(),
+				'skill' 		 : $(skill).find('input.skill').val(),
+				'category' 		 : $(skill).find('input.category').val(),
 				'yrs_skill_exp'  : $(skill).find('input.yrs_skill_exp').val()
+			});
+		});
+
+
+		/*reading input from accomplishments blocks*/
+		var accomplishments_blocks = $('.accomplishment_block');
+		accomplishments_blocks.each(function(index, accomplishment){
+
+			var date = '';
+			var formattedDate = date.slice(5,7) + date.slice(2,4);	
+
+			userData.accomplishments.push({
+				'accomplishment' : $(accomplishment).find('input.accomplishment').val(),
+				'accomp_descrip' : $(accomplishment).find('input.accomp_descrip').val(),
+				'date_accomp'  : $(accomplishment).find('input.date_accomp').val()
 			});
 		});
 	

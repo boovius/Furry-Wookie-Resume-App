@@ -1,14 +1,13 @@
 function hover_tag_add() {
 	
 	console.log('mouse hovered');	
-	$(this).hover(function(){
-		$('.hover').toggleClass('click_add');
-	});
-	$('.click_add').click(function(){
-		console.log('clicked and hovered');
-		$('#tagBox').append("<div class='tags'>" + $('#organization0').html() + "</div>");
+	$(this).mouseenter(function(){
+		$('.hover').addClass('click_add');
 	});
 }
+
+
+
 
 $(document).ready(function(){
 

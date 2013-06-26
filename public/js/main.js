@@ -9,7 +9,7 @@ $(document).ready(function(){
 
 	$.ajax('/api/resumes/51c2085576eebd4918000001',{
 		complete : function (response){	
-			/*console.log(response.responseJSON);	*/	
+				
 
 			/* NAME */
 			$('#name').html(response.responseJSON.name_first + ' ' + response.responseJSON.name_last);
@@ -106,8 +106,21 @@ $(document).ready(function(){
 			}  /* end skills */
 
 
-			$('.hover').hover(function(){
-				hover_tag_add();
+			$('.hover').mouseenter(function(){
+				$('.hover').addClass('click_add');
+			});
+
+			$('.hover').mouseleave(function(){
+				$('.hover').removeClass('click_add');
+			});
+
+			$('.click_add').click(function(){
+				console.log('clicked and hovered');
+				/*var value = this.id;
+				console.log(value);
+				var context = $(this).first().html();
+				console.log(context);
+				$('#tagBox').append("<div class='tag'>" + context + " | " + $('#'+value).html() + "</div>");*/
 			});
 
 
