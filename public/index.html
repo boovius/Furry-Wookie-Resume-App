@@ -2,8 +2,10 @@
 <html lang="en">
 	<head>	
 		<link rel="stylesheet" href="css/normalize.css">
-		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/style.css">
+		
 
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/main.js"></script>
@@ -11,43 +13,59 @@
 
 	</head>
 	<body>
-		<section id="wrapper">
-			<div id="res-heading" class="clearfix">
-				<div id="contactInfo" class="headerBoxes border">
+		<section id="wrapper" class="clearfix">
+			<div id="res-heading">
+
+				<div id="contactInfo" class="headerBoxes span4">
 					<div id="phoneNumber">(631)355-6566</div>
 					<address id="address">
 						<div id="street">130 Millet St.</div>
 						<div id="city_state_zip">
 							<div id="city">Dix Hills</div>
-							<div>,</div>
 							<div id="state">NY</div>
 							<div id="zip">11746</div>
 						</div> <!-- end id city_state_zip div -->
 					</address>
 				</div><!-- end id contactInfo Div -->
-				<div id="nameAndTitle" class="headerBoxes border">
+
+				<div id="nameAndTitle" class="headerBoxes span4">
 					<div id="name">Joshua Book</div>
-					<div id="title">Bad Ass Motherfucker</div>
-					<div id="profilePic">
+					
+					<!-- title -->
+					<!-- <div id="title">Bad Ass Motherfucker</div> -->
+					
+					<!-- profile pic -->
+					<!-- <div id="profilePic">
 						<img src="profPic.jpg">
-						<!-- <div class="reversePic">
+						 <div class="reversePic">
 							<img src="profPic.jpg">
-						</div> -->
+						</div>
+					</div> end profile pic -->
+					<hr>
+					<div id="links" class="border">
+						<a href="#" id="personal_website">website</a>
+						<a href="#" id="twitter">twitter</a>
+						<a href="#" id="linkedin">linkedin</a>
 					</div>
-				</div>
-				<div id="links" class="headerBoxes border"></div>
+				</div> <!-- end name and title -->
+				<div id="favorites" class="headerBoxes border span4"></div>
+				
 			</div>
 
 <!-- CONTROLS -->
-			<div id="controls">
-				<div id="prevCand"><button class="options"><img src="arrow-left.png"</button></div>
-				<div id="buttonWrap">
-					<button class="options"><img src="mail_icon.png"></button>
-					<button class="options"><img src="share_icon.png"></button>
-					<button class="options"><img src="print_icon.png"></button>
-					<button class="options"><img src="fav_icon.png"></button>
+			<div id="controls" class="span12">
+				<div id="prevCand">
+					<a class="btn btn-large" href=""><i class="icon-arrow-left"></i></a>
 				</div>
-				<div id="nextCand"><button class="options"><img src="arrow-right.jpg"></button></div>
+				<div id="buttonWrap">
+					<a class="btn options" href=""><i class="icon-envelope"></i></a>
+					<a class="btn options" href=""><i class="icon-share"></i></a>
+					<a class="btn options" href=""><i class="icon-print"></i></a>
+					<a class="btn options" href=""><i class="icon-star"></i></a>
+				</div>
+				<div id="nextCand">
+					<a class="btn btn-large" href=""><i class="icon-arrow-right"></i></a>
+				</div>
 			</div> <!-- end div id controls -->
 			
 
@@ -57,15 +75,15 @@
 
 <!-- Resume Viewer  -->
 
-			<div id="main" class="clearfix border">
+			<div id="main" class="border span12">
 				<div class="border tabbable tabs-left span8">
-					<ul class="nav nav-tabs">
+					<ul class="nav nav-tabs bigTabs">
 						<li><a href="#workExp" data-toggle="tab">Work Exp</a></li>
 					    <li><a href="#education" data-toggle="tab">Education</a></li>
 					    <li><a href="#skills" data-toggle="tab">Skills</a></li>
 					    <li><a href="#accomplishments" data-toggle="tab">Accomplishments</a></li>
 					</ul>
-					<div id="resumeViewer" class="border mainBox tabbable tab-content" >
+					<div id="resumeViewer" class="border skeletonViewBox tabbable tab-content" >
 
 						<div id="workExp" class="viewBoxes">
 							<h2>Experience</h2>
@@ -76,19 +94,19 @@
 						<div id="skills" class="viewBoxes">
 							<h2>Skills</h2>
 						</div>
-						<div id="accomplishments" class="viewBox">
+						<div id="accomplishments" class="viewBoxes">
 							<h2>Accomplishments</h2>
 						</div>
 					</div> <!-- end Resume Viewer Div -->
 				</div> <!-- end class tabbable tabs-left -->
 	
-				<div id="tagBox" class="border span3 mainBoxes">
+				<div id="tagBox" class="border span4 mainBox">
 					<h2>TAGS:</h2>
 					
 				</div> 
 
 <!-- Notes Box -->
-				<div id="notesBox" class="border span12 mainBox">
+				<div id="notesBox" class="border span12">
 					<h2>NOTES:</h2>
 					<textarea></textarea> 
 				</div> 
@@ -97,6 +115,6 @@
 
 			</div> <!-- end main -->
 
-		</div> <!-- end wrapper -->
+		</section> <!-- end wrapper -->
 	</body>
 </html>

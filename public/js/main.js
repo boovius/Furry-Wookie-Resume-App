@@ -9,13 +9,24 @@ $(document).ready(function(){
 
 	$.ajax('/api/resumes/51c2085576eebd4918000001',{
 		complete : function (response){	
-				
-
+				console.log(response);
+				resume = response.responseJSON;
 			/* NAME */
-			$('#name').html(response.responseJSON.name_first + ' ' + response.responseJSON.name_last);
+			$('#name').html(resume.name_first + ' ' + resume.name_last);
+			
+			/* CONTACT INFO */
+			$('#phoneNumber').html(resume.contact_info.phone);
+			$('#street').html(resume.contact_info.street_address.street);
+			$('#city').html(resume.contact_info.street_address.city);
+			$('#state').html(resume.contact_info.street_address.state);
+			$('#zip').html(resume.contact_info.street_address.zip_code);
 
 
-			/*ADDRESS */
+			/* LINKS */
+			$('#personal_website').attr("href", resume.website);
+			$('#personal_website').attr("href", resume.twitter);
+			$('#personal_website').attr("href", resume.linked_in);
+
 
 
 			/* EXPERIENCE  */
@@ -57,7 +68,7 @@ $(document).ready(function(){
 			} /* END EXPERIENCE */
 
 			/* Education */
-			for (i=0; i<response.responseJSON.experience.length; i++){
+			for (i=0; i<response.responseJSON.schools.length; i++){
 				
 				var school = response.responseJSON.schools[i];
 
@@ -86,12 +97,12 @@ $(document).ready(function(){
 
 			/* Skills */
 
-			for (i=0; i<response.responseJSON.experience.length; i++){
+			for (i=0; i<response.responseJSON.skill.length; i++){
 				
 				var skill = response.responseJSON.skill[i];
 
 				$('#skills').append("<div class='skillInfo resInfo '>"+
-							"<table border='1' class='table-striped'>"+
+							"<table border='1'>"+
 								"<tr><td>CATEGORY</td><td id='skill_category" + i + "'></td></tr>"+
 								"<tr><td>SKILL TITLE</td><td id='skill_experience" + i +"'></td></tr>"+
 								"<tr><td>EXPERIENCE</td><td id='skill_title" + i +"'></td></tr></table></div>"); /* end education append html */
@@ -105,6 +116,27 @@ $(document).ready(function(){
 				
 			}  /* end skills */
 
+
+			/* Accomplishments */
+
+			for (i=0; i<response.responseJSON.accomplishments.length; i++){
+				
+				var accomplishment = response.responseJSON.accomplishments[i];
+
+				$('#accomplishments').append("<div class='skillInfo resInfo '>"+
+							"<table border='1'>"+
+								"<tr><td>ACCOMPLISHMENT</td><td id='accomplishment" + i + "'></td></tr>"+
+								"<tr><td>DESCRIPTION</td><td id='accomp_descrip" + i +"'></td></tr>"+
+								"<tr><td>DATE</td><td id='date_accomp" + i +"'></td></tr></table></div>"); /* end education append html */
+								
+
+
+				$('#accomplishment' + i).html(skill.category);
+				$('#accomp_descrip' + i).html(skill.title);
+				$('#date_accomp' + i).html(skill.experience);
+
+				
+			}  /* end skills */
 
 			$('.hover').mouseenter(function(){
 				$('.hover').addClass('click_add');

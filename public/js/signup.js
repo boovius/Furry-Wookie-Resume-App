@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+
+/* USER ADD BLOCKS TO FORM */
+
 	$('.employer_block_add').click(function(){
 		var html = $('.employer_block').first().clone();
 		html.css( {display: 'none'});
@@ -10,6 +13,15 @@ $(document).ready(function(){
 		return false;
 	});
 
+	$('.add_responsibility').click(function(){
+		var html = $('.responsiblity_block').first().clone();
+		html.css( {display: 'none'});
+		$(this).before(html);
+		html.fadeIn(1000);
+		html.slideDown(1400);
+		html.find('input').val('');
+		return false;
+	});
 	
 	$('.education_block_add').click(function(){
 		var html = $('.education_block').first().clone();
@@ -18,6 +30,7 @@ $(document).ready(function(){
 		html.fadeIn(1000);
 		html.slideDown(1400);
 		html.find('input').val('');
+		html.find('span').html('0');
 		return false;
 	});
 
@@ -42,6 +55,15 @@ $(document).ready(function(){
 	});
 
 
+/* GPA SLIDER */
+
+$('.gpa').change(function(){
+	console.log('slider change function executed');
+	$(this).siblings('span').html(this.value);
+});
+
+
+/* SUBMITTING DATA */
 
 	$('#user-data-entry').submit(function(){
 		var userData = {};
@@ -62,11 +84,19 @@ $(document).ready(function(){
 		var employer_blocks = $('.employer_block');
 		employer_blocks.each(function(index, employer){
 			
+			/*start date formatting */
 			var startDate = $(employer).find('input.start_date_ex').val();
 			var formattedStart = startDate.slice(5,7)+startDate.slice(2,4);			
 
+			/*end date formatting*/
 			var endDate = $(employer).find('input.end_date_ex').val();
 			var formattedEnd = endDate.slice(5,7)+endDate.slice(2,4);
+
+			/*parsing through responsiblities array*/
+			resps = [];
+			$(employer).find('input.responsibilities').each(function(index1, resp){
+				resps.push($(resp).val());
+			});
 
 			userData.employers.push({
 				'employer' : $(employer).find('input.employer').val(),
@@ -75,7 +105,7 @@ $(document).ready(function(){
 				'project' : $(employer).find('input.project').val(),
 				'start' : formattedStart,
 				'end' : formattedEnd,
-				'responsibilities' : $(employer).find('input.responsibilities').val()
+				'responsibilities' : resps
 			});
 		});
 		console.log(userData.employers);
