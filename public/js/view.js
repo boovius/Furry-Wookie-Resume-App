@@ -2,34 +2,20 @@ $(document).ready(function(){
 
 /*	$.ajax('/api/resumes',{
 		complete : function (response){	
-			resumes = response;
-		}
-	}); */
 
-
-	$.ajax('/api/resumes',{
-		complete : function (response){	
 				clog(response);
 				var resume = response.responseJSON[0];
-				clog(resume);
-			/* NAME */
-			$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
-			clog($('#name').data('id'));
-			
-			/* CONTACT INFO */
-			$('#phoneNumber').html(resume.contact_info.phone);
-			$('#street').html(resume.contact_info.street_address.street);
-			$('#city').html(resume.contact_info.street_address.city);
-			$('#state').html(resume.contact_info.street_address.state);
-			$('#zip').html(resume.contact_info.street_address.zip_code);
+				clog(resume);*/
 
+			var resume = getNewResume();
+			console.log('hello from view.js');
+			console.log(resume);
+
+			/* NAME AND CONTACT INFO */
+			fillContactInfoFields(resume);
 
 			/* LINKS */
-			$('#personal_website').attr("href", resume.website);
-			$('#personal_website').attr("href", resume.twitter);
-			$('#personal_website').attr("href", resume.linked_in);
-
-
+			fillPersonalLinksFields(resume);
 
 			/* EXPERIENCE  */
 			fillExperienceTable(resume);
@@ -63,9 +49,6 @@ $(document).ready(function(){
 			});
 
 
-							
-		} /* end anoynomous complete function */
-	}); /* end AJAX request */
 }); /* end Document Ready */
 
 

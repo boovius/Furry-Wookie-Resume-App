@@ -2,7 +2,30 @@ function clog( input ){
 	console.log(input);
 }
 
+/* fill contact info */
+function fillContactInfoFields(resume){
+	/* Name*/
+	$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
+	clog($('#name').data('id'));
 
+	/* Contact Info */
+	$('#phoneNumber').html(resume.contact_info.phone);
+	$('#street').html(resume.contact_info.street_address.street);
+	$('#city').html(resume.contact_info.street_address.city);
+	$('#state').html(resume.contact_info.street_address.state);
+	$('#zip').html(resume.contact_info.street_address.zip_code);
+}
+/* end fill contact info */
+
+
+
+/* fill personal links */
+
+function fillPersonalLinksFields(resume){
+	$('#personal_website').attr("href", resume.website);
+	$('#twitter').attr("href", resume.twitter);
+	$('#linkedin').attr("href", resume.linked_in);
+}
 
 /* fill Resume View Table Functions */
 
