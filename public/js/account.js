@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 	$('#delete-control').click(function(){
-		console.log('hello account');
+		console.log('hello from account.js');
 		var id=$('#name').data('id');
 		console.log(id);
 
@@ -10,14 +10,22 @@ $(document).ready(function(){
 			type: 'DELETE'
 		});
 
-		$('#res-heading').html('<div>ACCOUNT DELETED</div>');
+		$('#name').html('');
+		/*$('#res-id').html('');*/
+		$('#phoneNumber').html('');
+		$('#street').html('');
+		$('#city').html('');
+		$('#state').html('');
+		$('#zip').html('');
+		$('#account_details').html('ACCOUNT DELETED');
 		
 	});
 
 	$('#new-control').click(function(){
-		getNewResume();
-		window.location = window.location;
-
+		getNewResume(function(resume){	
+			$('#account_details').html('');
+			fillContactInfoFields(resume);
+		});
 	});
 
 });

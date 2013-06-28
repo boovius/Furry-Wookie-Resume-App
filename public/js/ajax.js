@@ -1,15 +1,10 @@
 
-function getNewResume(){
+function getNewResume(callback){
 	$.ajax('/api/resumes',{
-		complete : function (response){	
-
-			console.log(response);
-			var resume = response.responseJSON[0];
-			console.log(resume);
-			return resume;
+		complete : function(response) {
+			callback(response.responseJSON[0]);
 		} /* end annoymous function */
-	}); /*end ajax request*/ 
-	
+	}); /*end ajax request*/ 	
 }
 
 function getSpecificResume(id){

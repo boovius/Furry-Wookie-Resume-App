@@ -1,12 +1,9 @@
-function clog( input ){
-	console.log(input);
-}
-
+console.log('hello from main.js');
 /* fill contact info */
 function fillContactInfoFields(resume){
 	/* Name*/
 	$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
-	clog($('#name').data('id'));
+	/*$('#res-id').html(resume.id);*/ /*$('#name').data('id')*/
 
 	/* Contact Info */
 	$('#phoneNumber').html(resume.contact_info.phone);
@@ -14,6 +11,7 @@ function fillContactInfoFields(resume){
 	$('#city').html(resume.contact_info.street_address.city);
 	$('#state').html(resume.contact_info.street_address.state);
 	$('#zip').html(resume.contact_info.street_address.zip_code);
+	$('#account_details').html('');
 }
 /* end fill contact info */
 
@@ -38,12 +36,12 @@ function fillExperienceTable(resume){
 		$('#workExp').append("<div class='workInfo resInfo'>"+
 								"<table border=1>"+
 									"<tr><td>Employer</td><td id='organization" + i + "'class='hover'></td></tr>"+
-									"<tr><td>Location</td><td id='location" + i +"'></td></tr>"+
-									"<tr><td>Position</td><td id='role" + i +"'></td></tr>"+
-									"<tr><td>Project</td><td id='project" + i +"'></td></tr>"+
-									"<tr><td>Start Date</td><td id='start_date" + i +"'></td></tr>"+
-									"<tr><td>End Date</td><td id='end_date" + i +"'></td></tr>"+
-									"<tr><td>Responsiblities</td><td id='responsibilities" + i +"'></td></tr>"+
+									"<tr><td>Location</td><td id='location" + i +"'class='hover'></td></tr>"+
+									"<tr><td>Position</td><td id='role" + i +"'class='hover'></td></tr>"+
+									"<tr><td>Project</td><td id='project" + i +"'class='hover'></td></tr>"+
+									"<tr><td>Start Date</td><td id='start_date" + i +"'class='hover'></td></tr>"+
+									"<tr><td>End Date</td><td id='end_date" + i +"'class='hover'></td></tr>"+
+									"<tr><td>Responsiblities</td><td id='responsibilities" + i +"'class='hover'></td></tr>"+
 									"</table></div>");
 
 

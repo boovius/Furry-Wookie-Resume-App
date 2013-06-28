@@ -158,6 +158,18 @@ $('.gpa').change(function(){
 	
 		console.log(userData);
 
+		var type = 'POST';
+		var path = 'api/resumes'
+		var JSON_data = JSON.stringify( { 'resume' : userData});
+
+		$.ajax({
+			type : type,
+			url  : 'api/resumes',
+			data : JSON_data
+		}).done(function(){
+			alert('Post Submitted');
+		});
+
 
 		return false;
 	}); /*end submit */
