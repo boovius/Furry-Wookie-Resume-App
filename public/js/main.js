@@ -3,7 +3,7 @@ console.log('hello from main.js');
 function fillContactInfoFields(resume){
 	/* Name*/
 	$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
-	/*$('#res-id').html(resume.id);*/ /*$('#name').data('id')*/
+	$('#res-id').html(resume.id); /*$('#name').data('id')*/
 
 	/* Contact Info */
 	$('#phoneNumber').html(resume.contact_info.phone);

@@ -31,11 +31,15 @@ $(document).ready(function(){
 
 		console.log($('.click_add'));
 		$('body').on('click', '.hover', function(){
-			var value = this.id;
-			console.log(value);
-			var context = $(this).first().html();
-			console.log(context);
-			$('#tagBox').append("<div class='tag'>" + context + " | " + $('#'+value).html() + "</div>");
+			if (!$('.hover').hasClass('click_add')){
+				$('.hover').addClass('click_add');
+				var value = this.id;
+				console.log(value);
+				var context = $(this).first().html();
+				console.log(context);
+				$('#tagBox').append("<div class='tag'>" + context + " | " + $('#'+value).html() + "</div>");	
+			}
+			
 		});
 
 

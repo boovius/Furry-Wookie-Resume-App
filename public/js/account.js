@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$('#delete-control').click(function(){
 		console.log('hello from account.js');
+		$('#name').removeData();
 		var id=$('#name').data('id');
 		console.log(id);
 
@@ -11,13 +12,18 @@ $(document).ready(function(){
 		});
 
 		$('#name').html('');
-		/*$('#res-id').html('');*/
+		$('#name').removeData();
+		$('#res-id').html('');
 		$('#phoneNumber').html('');
 		$('#street').html('');
 		$('#city').html('');
 		$('#state').html('');
 		$('#zip').html('');
 		$('#account_details').html('ACCOUNT DELETED');
+
+		var id=$('#name').data('id');
+		console.log('my id is : ' + id);
+
 		
 	});
 
