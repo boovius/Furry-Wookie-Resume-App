@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+	gpaSlider();
 
 /* USER ADD BLOCKS TO FORM */
 
@@ -10,6 +11,7 @@ $(document).ready(function(){
 		html.fadeIn(1000);
 		html.slideDown(1400);
 		html.find('input').val('');
+		gpaSlider();
 		return false;
 	});
 
@@ -53,14 +55,6 @@ $(document).ready(function(){
 		html.find('input').val('');
 		return false;
 	});
-
-
-/* GPA SLIDER */
-
-$('.gpa').change(function(){
-	console.log('slider change function executed');
-	$(this).siblings('span').html(this.value);
-});
 
 
 /* SUBMITTING DATA */
@@ -156,8 +150,10 @@ $('.gpa').change(function(){
 			});
 		});
 	
+/* Logging out Submitted User Data Input */
 		console.log(userData);
 
+/* Submitting to Server Submitted User Data Input */
 		var type = 'POST';
 		var path = 'api/resumes'
 		var JSON_data = JSON.stringify( { 'resume' : userData});
@@ -176,3 +172,16 @@ $('.gpa').change(function(){
 	
 
 });/* end ready */
+
+
+/*  !!!  - - -  FUNCTIONS  - - -  !!! */
+
+
+
+/* GPA SLIDER */
+function gpaSlider() {
+	$('.gpa').change(function(){
+		console.log('slider change function executed');
+		$(this).siblings('span').html(this.value);
+	});
+}

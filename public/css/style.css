@@ -81,7 +81,7 @@
 }
 
 
-#prevCand {
+#prevRes {
 	position: absolute;
 	left: 180px;
 	top: 10px;
@@ -110,7 +110,7 @@
 	margin-left: 35px;
 }
 
-#nextCand {
+#nextRes {
 	position: absolute;
 	right: 180px;
 	top: 10px;

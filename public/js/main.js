@@ -1,6 +1,7 @@
 console.log('hello from main.js');
 /* fill contact info */
 function fillContactInfoFields(resume){
+	console.log('fill contact info executed');
 	/* Name*/
 	$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
 	$('#res-id').html(resume.id); /*$('#name').data('id')*/
