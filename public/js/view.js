@@ -3,23 +3,20 @@ $(document).ready(function(){
 			
 
 			console.log('hello from view.js');
-			getNewResume(function(resume) {
-				console.log(resume);
+			getNewResume(function(resume) {	
 				fillViewPage(resume);
 			});
 
 		
-
+/* PREV/NEXT CONTROLS */
 			
+			/* Next Resume */
 
 		$('#nextResButton').click(function(){
-			console.log('next button pushed');
 			var id=$('#name').data('id');	
-			console.log('id before remove is ' + id);
 			$('#name').removeData();
 			$.ajax('/api/resumes', {
 				complete : function (response){	
-					console.log('id after remove is ' + id);
 					var totalResumes = response.responseJSON.length;
 					for (i = 0; i < totalResumes; i++){
 						if (response.responseJSON[i].id === id){
@@ -28,6 +25,7 @@ $(document).ready(function(){
 							else 
 								var resume = response.responseJSON[i+1];
 							fillViewPage(resume);
+							break;
 						}/* end if */
 					}/* for loop */
 				} /* end annoymous complete function */
@@ -35,23 +33,24 @@ $(document).ready(function(){
 			return false;
 		});
 
+			/* Prev Resume */
 		$('#prevResButton').click(function(){
-			console.log('prev button pushed');
 			var id=$('#name').data('id');	
-			console.log('id before remove is ' + id);
 			$('#name').removeData();
 			$.ajax('/api/resumes', {
 				complete : function (response){	
-					console.log('id after remove is ' + id);
 					var totalResumes = response.responseJSON.length;
-					console.log(totalResumes);
 					for (i = 0; i < totalResumes; i++){
 						if (response.responseJSON[i].id === id){
-							if (i === 0)
-								var resume = response.responseJSON[totalResumes-1];
-							else	
+							if (i === 0){
+								var resume = response.responseJSON[totalResumes-1];								
+							}
+							else{
 								var resume = response.responseJSON[i-1];
+							}	
+								
 							fillViewPage(resume);
+							break;
 						}/* end if */
 					}/* for loop */
 				} /* end annoymous complete function */
@@ -59,21 +58,15 @@ $(document).ready(function(){
 			return false;
 		});
 			
-		$('.hover').mouseenter(function(){
-			$('.hover').addClass('click_add');
-		});
 
-		$('.hover').mouseleave(function(){
-			$('.hover').removeClass('click_add');
-		});
-
-		console.log($('.click_add'));
+/* TAGGING */
 		$('body').on('click', '.hover', function(){
-			if (!$('.hover').hasClass('click_add')){
-				$('.hover').addClass('click_add');
+
+			if (!$(this).hasClass('click_add')){
+				$(this).addClass('click_add');
 				var value = this.id;
 				console.log(value);
-				var context = $(this).first().html();
+				var context = $(this).parent().first().find('.context').html();
 				console.log(context);
 				$('#tagBox').append("<div class='tag'>" + context + " | " + $('#'+value).html() + "</div>");	
 			}

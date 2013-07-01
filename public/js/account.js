@@ -1,5 +1,6 @@
 $(document).ready(function(){
 
+		
 	$('#delete-control').click(function(){
 		console.log('hello from account.js');
 
@@ -23,10 +24,6 @@ $(document).ready(function(){
 			var id=$('#name').data('id');
 			console.log('my id is : ' + id);
 		});
-
-
-
-		
 
 		
 	});

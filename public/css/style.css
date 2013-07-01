@@ -187,10 +187,18 @@
 }
 
 /* TAGS box */
+#tagBox{
+	margin-left: 0;
+	overflow: auto;
+}
+
+.click_add {
+	background-color: #111;
+}
 
 .tag {
 	height: 100%;
-	width: 100%;
+	width: 80%;
 	margin: 5px;
 	display: inline-block;
 	
@@ -201,9 +209,7 @@
 	font-weight: bold;
 }
 
-#tagBox{
-	margin-left: 0;
-}
+
 
 /* notes box */
 

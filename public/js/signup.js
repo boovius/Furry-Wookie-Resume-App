@@ -33,6 +33,7 @@ $(document).ready(function(){
 		html.slideDown(1400);
 		html.find('input').val('');
 		html.find('span').html('0');
+		gpaSlider();
 		return false;
 	});
 
@@ -63,12 +64,12 @@ $(document).ready(function(){
 		var userData = {};
 		userData['first_name'] = $('#first_name').val();
 		userData['last_name'] = $('#last_name').val();
-		userData['email'] = $('#email').val();
-		userData['phone'] = $('#phone').val();
-		userData['street'] = $('#street').val();
-		userData['city'] = $('#city').val();
-		userData['state'] = $('#state').val();
-		userData['zipcode'] = $('#zipcode').val();
+		userData['contact_info.email'] = $('#email').val();
+		userData['contact_info.phone'] = $('#phone').val();
+		userData['contact_info.street_address.street'] = $('#street').val();
+		userData['contact_info.street_address.city'] = $('#city').val();
+		userData['contact_info.street_address.state'] = $('#state').val();
+		userData['contact_info.street_address.zip_code'] = $('#zipcode').val();
 		userData['schools'] = [];
 		userData['employers'] = [];
 		userData['skills'] = [];
@@ -180,8 +181,9 @@ $(document).ready(function(){
 
 /* GPA SLIDER */
 function gpaSlider() {
-	$('.gpa').change(function(){
+	$('.gpa').off('change').on('change', function(){
 		console.log('slider change function executed');
 		$(this).siblings('span').html(this.value);
 	});
 }
+

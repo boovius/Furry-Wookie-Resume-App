@@ -36,13 +36,13 @@ function fillExperienceTable(resume){
 		/* appending html - */
 		$('#workExp').append("<div class='workInfo resInfo'>"+
 								"<table border=1>"+
-									"<tr><td>Employer</td><td id='organization" + i + "'class='hover'></td></tr>"+
-									"<tr><td>Location</td><td id='location" + i +"'class='hover'></td></tr>"+
-									"<tr><td>Position</td><td id='role" + i +"'class='hover'></td></tr>"+
-									"<tr><td>Project</td><td id='project" + i +"'class='hover'></td></tr>"+
-									"<tr><td>Start Date</td><td id='start_date" + i +"'class='hover'></td></tr>"+
-									"<tr><td>End Date</td><td id='end_date" + i +"'class='hover'></td></tr>"+
-									"<tr><td>Responsiblities</td><td id='responsibilities" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>EMPLOYER</td><td id='organization" + i + "'class='hover'></td></tr>"+
+									"<tr><td class='context'>LOCATION</td><td id='location" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>POSITION</td><td id='role" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>PROJECT</td><td id='project" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>START DATE</td><td id='start_date" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>END DATE</td><td id='end_date" + i +"'class='hover'></td></tr>"+
+									"<tr><td class='context'>RESPONSIBILITIES</td><td id='responsibilities" + i +"'class='hover'></td></tr>"+
 									"</table></div>");
 
 
@@ -78,13 +78,13 @@ function fillEducationTable(resume){
 
 		$('#education').append("<div class='educationInfo resInfo'>"+
 					"<table border='1'>"+
-						"<tr><td>SCHOOL</td><td id='school" + i + "'></td></tr>"+
-						"<tr><td>MAJOR</td><td id='major" + i +"'></td></tr>"+
-						"<tr><td>MINOR</td><td id='minor" + i +"'></td></tr>"+
-						"<tr><td>DEGREE</td><td id='degree" + i +"'></td></tr>"+
-						"<tr><td>START</td><td id='start" + i +"'></td></tr>"+
-						"<tr><td>END</td><td id='end" + i +"'></td></tr>"+
-						"<tr><td>GPA</td><td id='gpa" + i +"'></td></tr>"+
+						"<tr><td class='context'>SCHOOL</td><td id='school" + i + "' class='hover'></td></tr>"+
+						"<tr><td class='context'>MAJOR</td><td id='major" + i +   "' class='hover'></td></tr>"+
+						"<tr><td class='context'>MINOR</td><td id='minor" + i +   "' class='hover'></td></tr>"+
+						"<tr><td class='context'>DEGREE</td><td id='degree" + i + "' class='hover'></td></tr>"+
+						"<tr><td class='context'>START</td><td id='start" + i +   "' class='hover'></td></tr>"+
+						"<tr><td class='context'>END</td><td id='end" + i +       "' class='hover'></td></tr>"+
+						"<tr><td class='context'>GPA</td><td id='gpa" + i +       "' class='hover'></td></tr>"+
 						"</table></div>"); /* end education append html */
 
 
@@ -111,9 +111,9 @@ function fillSkillsTable(resume){
 
 		$('#skills').append("<div class='skillInfo resInfo '>"+
 					"<table border='1'>"+
-						"<tr><td>CATEGORY</td><td id='skill_category" + i + "'></td></tr>"+
-						"<tr><td>SKILL TITLE</td><td id='skill_experience" + i +"'></td></tr>"+
-						"<tr><td>EXPERIENCE</td><td id='skill_title" + i +"'></td></tr></table></div>"); /* end education append html */
+						"<tr><td class='context'>CATEGORY</td><td id='skill_category" + i + "'     class='hover'></td></tr>"+
+						"<tr><td class='context'>SKILL TITLE</td><td id='skill_experience" + i +"' class='hover'></td></tr>"+
+						"<tr><td class='context'>EXPERIENCE</td><td id='skill_title" + i +"'       class='hover'></td></tr></table></div>"); /* end education append html */
 						
 
 
@@ -137,9 +137,9 @@ function fillAccomplishmentsTable(resume){
 
 		$('#accomplishments').append("<div class='skillInfo resInfo '>"+
 					"<table border='1'>"+
-						"<tr><td>ACCOMPLISHMENT</td><td id='accomplishment" + i + "'></td></tr>"+
-						"<tr><td>DESCRIPTION</td><td id='accomp_descrip" + i +"'></td></tr>"+
-						"<tr><td>DATE</td><td id='date_accomp" + i +"'></td></tr></table></div>"); /* end education append html */
+						"<tr><td class='context'>ACCOMPLISHMENT</td><td id='accomplishment" + i + "'class='hover'></td></tr>"+
+						"<tr><td class='context'>DESCRIPTION</td><td id='accomp_descrip" + i +"'    class='hover'></td></tr>"+
+						"<tr><td class='context'>DATE</td><td id='date_accomp" + i +"'              class='hover'></td></tr></table></div>"); /* end education append html */
 						
 
 
