@@ -1,11 +1,10 @@
 $(document).ready(function(){
-
-			
-
-			console.log('hello from view.js');
-			getNewResume(function(resume) {	
-				fillViewPage(resume);
-			});
+	console.log('hello from view.js');
+	
+	getNewResume(function(resume) {
+		console.log(resume);	
+		fillViewPage(resume);
+	});
 
 		
 /* PREV/NEXT CONTROLS */

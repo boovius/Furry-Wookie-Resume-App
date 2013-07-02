@@ -64,15 +64,17 @@ $(document).ready(function(){
 		var userData = {};
 		userData['first_name'] = $('#first_name').val();
 		userData['last_name'] = $('#last_name').val();
-		userData['contact_info.email'] = $('#email').val();
-		userData['contact_info.phone'] = $('#phone').val();
-		userData['contact_info.street_address.street'] = $('#street').val();
-		userData['contact_info.street_address.city'] = $('#city').val();
-		userData['contact_info.street_address.state'] = $('#state').val();
-		userData['contact_info.street_address.zip_code'] = $('#zipcode').val();
+		userData['contact_info'] = {};
+		userData['contact_info']['email'] = $('#email').val();
+		userData['contact_info']['phone'] = $('#phone').val();
+		userData['contact_info']['street_address'] = {};
+		userData['contact_info']['street_address']['street'] = $('#street').val();
+		userData['contact_info']['street_address']['city'] = $('#city').val();
+		userData['contact_info']['street_address']['state'] = $('#state').val();
+		userData['contact_info']['street_address']['zip_code'] = $('#zipcode').val();
 		userData['schools'] = [];
-		userData['employers'] = [];
-		userData['skills'] = [];
+		userData['experience'] = [];
+		userData['skill'] = [];
 		userData['accomplishments'] = [];
 
 		/*reading input from employer blocks*/

@@ -122,6 +122,7 @@
 #main{
 	background-color: #fff;
 	margin: 0;
+	height: 400px;
 }
 
 /* Resume Viewer */
@@ -189,7 +190,8 @@
 /* TAGS box */
 #tagBox{
 	margin-left: 0;
-	overflow: auto;
+	height: 400px;
+	overflow: scroll;
 }
 
 .click_add {
@@ -197,7 +199,6 @@
 }
 
 .tag {
-	height: 100%;
 	width: 80%;
 	margin: 5px;
 	display: inline-block;
