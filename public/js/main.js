@@ -3,15 +3,15 @@ console.log('hello from main.js');
 function fillContactInfoFields(resume){
 	console.log('fill contact info executed');
 	/* Name*/
-	$('#name').attr('data-id', resume.id).html(resume.name_first + ' ' + resume.name_last);
+	$('#name').attr('data-id', resume.id).html(resume.first_name + ' ' + resume.last_name);
 	$('#res-id').html(resume.id); /*$('#name').data('id')*/
 
 	/* Contact Info */
-	$('#phoneNumber').html(resume.contact_info.phone);
-	$('#street').html(resume.contact_info.street_address.street);
-	$('#city').html(resume.contact_info.street_address.city);
-	$('#state').html(resume.contact_info.street_address.state);
-	$('#zip').html(resume.contact_info.street_address.zip_code);
+	$('#phoneNumber').html(resume.phone);
+	$('#street').html(resume.street);
+	$('#city').html(resume.city);
+	$('#state').html(resume.state);
+	$('#zip').html(resume.zip_code);
 	$('#account_details').html('');
 }
 /* end fill contact info */
@@ -30,9 +30,10 @@ function fillPersonalLinksFields(resume){
 
 /* EXPERIENCE  */
 function fillExperienceTable(resume){
-	for (i=0; i<resume.experience.length; i++)
+	for (i=0; i<resume.employers.length; i++)
 	{
-		var job = resume.experience[i];
+		console.log('length of resume.employers.length: ' + resume.employers.length);
+		var job = resume.employers[i];
 		/* appending html - */
 		$('#workExp').append("<div class='workInfo resInfo'>"+
 								"<table border=1>"+
@@ -50,7 +51,7 @@ function fillExperienceTable(resume){
 
 
 		$('#organization' + i).html(job.organization);
-		$('#location' + i).html(job.location);
+		$('#location' + i).html(job.job_location);
 		$('#role' + i).html(job.role);
 		$('#project' + i).html(job.project);
 		$('#start_date' + i).html(job.start_month_year);	
@@ -88,7 +89,7 @@ function fillEducationTable(resume){
 						"</table></div>"); /* end education append html */
 
 
-		$('#school' + i).html(school.name);
+		$('#school' + i).html(school.school_name);
 		$('#major' + i).html(school.major);
 		$('#minor' + i).html(school.minor);
 		$('#degree' + i).html(school.degree);
@@ -105,21 +106,21 @@ function fillEducationTable(resume){
 function fillSkillsTable(resume){
 	
 
-	for (i=0; i<resume.skill.length; i++){
+	for (i=0; i<resume.skills.length; i++){
 		
-		var skill = resume.skill[i];
+		var skill = resume.skills[i];
 
 		$('#skills').append("<div class='skillInfo resInfo '>"+
 					"<table border='1'>"+
 						"<tr><td class='context'>CATEGORY</td><td id='skill_category" + i + "'     class='hover'></td></tr>"+
-						"<tr><td class='context'>SKILL TITLE</td><td id='skill_experience" + i +"' class='hover'></td></tr>"+
-						"<tr><td class='context'>EXPERIENCE</td><td id='skill_title" + i +"'       class='hover'></td></tr></table></div>"); /* end education append html */
+						"<tr><td class='context'>SKILL TITLE</td><td id='skill_experience" + i + "' class='hover'></td></tr>"+
+						"<tr><td class='context'>EXPERIENCE</td><td id='skill_title" + i + "'       class='hover'></td></tr></table></div>"); /* end education append html */
 						
 
 
-		$('#skill_category' + i).html(skill.category);
-		$('#skill_title' + i).html(skill.title);
-		$('#skill_experience' + i).html(skill.experience);
+		$('#skill_category' + i).html(skill.skill_category);
+		$('#skill_title' + i).html(skill.skill_title);
+		$('#skill_experience' + i).html(skill.yrs_skill_exp);
 
 		
 	}  
@@ -143,10 +144,17 @@ function fillAccomplishmentsTable(resume){
 						
 
 
-		$('#accomplishment' + i).html(accomplishment.title);
-		$('#accomp_descrip' + i).html(accomplishment.description);
-		$('#date_accomp' + i).html(accomplishment.month_year);
+		$('#accomplishment' + i).html(accomplishment.accomplishment_name);
+		$('#accomp_descrip' + i).html(accomplishment.accomp_description);
+		$('#date_accomp' + i).html(accomplishment.accomp_date);
 
 		
 	}  /* end accomplishments */
+}
+
+function resetResViewBoxes(){
+	$('#workExp').html('');
+	$('#education').html('');
+	$('#skills').html('');
+	$('#accomplishments').html('');
 }

@@ -12,6 +12,7 @@
 	</head>
 	<body>
 
+<!-- FACEBOOK AUTHENTICATION/LOGIN -->
 		<div id="fb-root"></div>
 		<script>
 		  /*window.fbAsyncInit = function() {
@@ -52,8 +53,7 @@
 		   }(document, 'script', 'facebook-jssdk'));*/
 		</script>
 
-
-<!-- HEADER -->
+<!-- GENERAL SITE HEADER -->
 		<div id="header" class="container">
 			<div id="header-title" class="left">
 				<a href="">Resume Magician</a>
@@ -67,19 +67,19 @@
 			<div id="header-signin" class="right"><a href="account.html">account</a></div>
 		</div>
 
-
+				<!--**** SIGN UP FORMS ****-->
 		<form class="form-horizontal" id="user-data-entry">
 			
-<!-- SIGN UP FORMS -->
+					
 
 <!-- Sign Up Info -->
 			<fieldset name="signup_info" class="container">
 				<legend>Sign Up</legend>
 
-				<div class="control-group input-append" name="user_account_name">
-					<label class="control-label" for="signup_name">User Name</label>
+				<div class="control-group input-append" name="email">
+					<label class="control-label" for="email">Email</label>
 					<div class="controls">
-						<input  id="signup_name" required type="text" placeholder="e.g. first name last name" />
+						<input  id="email" required type="text" placeholder="e.g. johndoe@email.com" />
 						<span class="add-on">Required</span>
 					</div>
 				</div> <!-- end control group signup name -->
@@ -91,9 +91,8 @@
 						<span class="add-on">Required</span>
 					</div>
 				</div> <!-- end control group signup name -->
-				<span class="help-block">Enter your user account name and password</span>
+				<span class="help-block">Enter your email and password</span>
 			</fieldset> <!-- end sign up info fieldset -->
-
 
 <!-- CONCTACT INFO -->
 			<fieldset name="contact_info" class="container">
@@ -116,13 +115,6 @@
 							<span class="add-on">Required</span>
 						</div>
 					</div> <!-- end control group last name -->
-
-					<div class="control-group" name="email">
-						<label class="control-label" for="email">Email</label>
-						<div class="controls">
-							<input  required id="email" type="text" placeholder="e.g. johndoe@email.com" />
-						</div>
-					</div> <!-- end control group signup name -->
 
 					<div class="control-group" name="phone">
 						<label class="control-label" for="phone">Phone</label>
@@ -215,7 +207,7 @@
 
 			</fieldset> <!-- end contact info fieldset -->
 
-			<!-- CONCTACT INFO -->
+<!-- CONCTACT INFO -->
 						<fieldset name="personal_links" class="container">
 
 							<legend>Add Your Personal Links</legend>
@@ -255,12 +247,12 @@
 
 				<div class="employer_block well">
 
-					<div class="control-group" name="employer">
-						<label class="control-label" for="employer">Employer</label>
+					<div class="control-group" name="organization">
+						<label class="control-label" for="organization">Employer</label>
 						<div class="controls">
-							<input  class="employer" type="text" placeholder="e.g. Barclays" />
+							<input  class="organization" type="text" placeholder="e.g. Barclays" />
 						</div>
-					</div> <!-- end control group employer -->
+					</div> <!-- end control group organization -->
 
 					<div class="control-group" name="location">
 						<label class="control-label" for="location">Location</label>
@@ -270,12 +262,12 @@
 					</div> <!-- end control group location -->
 
 
-					<div class="control-group" name="position">
-						<label class="control-label" for="position">Position</label>
+					<div class="control-group" name="role">
+						<label class="control-label" for="role">Position</label>
 						<div class="controls">
-							<input  class="position" type="text" placeholder="e.g. Manager" />
+							<input  class="role" type="text" placeholder="e.g. Manager" />
 						</div>
-					</div> <!-- end control group position -->
+					</div> <!-- end control group role -->
 
 
 					<div class="control-group" name="project">
@@ -310,13 +302,12 @@
 
 				</div> <!-- end employer block -->
 			
-			<!-- add another employer -->
-			<span id="addEmployer" class="help-block">
-				<a href="#" class="employer_block_add"> + add another employer</a>
-			</span>
+				<!-- add another employer -->
+				<span id="addEmployer" class="help-block">
+					<a href="#" class="employer_block_add"> + add another employer</a>
+				</span>
 
 			</fieldset> <!-- end work history fieldset -->
-
 
 <!-- EDUCATION HISTORY -->
 			<fieldset name="education_history" class="container education_history">
@@ -486,8 +477,6 @@
 
 
 
-
-			</fieldset>
 
 
 

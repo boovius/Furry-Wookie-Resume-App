@@ -8,13 +8,13 @@ $(document).ready(function(){
 		console.log(id);
 
 		$.ajax({
-			url : 'api/resumes/' + id,
+			url : '/' + id,
 			type: 'DELETE'
 		}).done(function(){
 				$('#name').html('');
 				$('#name').removeData();
 				$('#res-id').html('');
-				$('#phoneNumber').html('');
+				$('#phone').html('');
 				$('#street').html('');
 				$('#city').html('');
 				$('#state').html('');

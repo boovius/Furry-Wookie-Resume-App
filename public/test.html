@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>R&eacute;sum&eacute;</title>
+
+    <style>
+      .left{
+        float: left;
+      }
+    </style>
+
+  </head>
+  <body>
+
+    <button id="post" class=".left">POST</button>
+    <div class="post_result"></div>
+    <button id="put" class=".left">PUT</button>
+    <input type="text" id="put_input"></input>
+    <div class="put_result"></div>
+    <button id="delete" class=".left">DELETE</button>
+    <input type="text" id="delete_input"></input>
+    <div class="delete_result"></div>
+    
+
+	
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script type="text/javascript">
+    
+    var data = {"resume":{"name_first":"Bob"}};
+      
+    $(function() {
+
+      
+      console.log("loaded");
+
+
+
+      $('#post').on('click', function() {
+  		  $.ajax({
+  		    method: 'POST',
+  		    url: '/',
+          success: function(data){
+            var x = (JSON.parse(data).message);
+            $('.post_result').append(x + "<br/>");
+            },
+  		    data: JSON.stringify(data)
+        });
+      });
+
+
+      $('#put').on('click', function() {
+        var id = $('#put_input').val();
+        var data = {"resume":{"name_first":"Susan"}};
+        console.log('wtf?');
+        $.ajax({
+          method: 'PUT',
+          url: '/' + id,
+          success: function(data){
+            console.log('put success!');
+            var x = (JSON.parse(data));
+            console.log(x);
+            alert('changed from Bob to Susan');
+            $('#put_input').val('');
+          }, 
+          failure: function(error){
+            console.log(error);
+          },
+          data: JSON.stringify(data)
+        });
+      });
+
+
+
+      $('#delete').on('click', function() {
+        var id = $('#delete_input').val();
+        console.log('delete clicked');
+        $.ajax({
+          method: 'DELETE',
+          url: '/' + id,
+          success: function(data){
+            console.log("success!: " + data);
+            alert("success!: " + data);
+          }
+        });
+      });
+    });
+    </script>
+
+
+
+
+  </body>
+</html>

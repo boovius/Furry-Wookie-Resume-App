@@ -1,6 +1,6 @@
 
 function getNewResume(callback){
-	$.ajax('/api/resumes',{
+	$.ajax('/',{
 		complete : function(response) {
 			callback(response.responseJSON[0]);
 		} /* end annoymous function */
@@ -8,7 +8,7 @@ function getNewResume(callback){
 }
 
 function getSpecificResume(id, callback){
-	$.ajax('/api/resumes' + id,{
+	$.ajax('/' + id,{
 		complete : function (response){	
 			callback(response.responseJSON);
 		}

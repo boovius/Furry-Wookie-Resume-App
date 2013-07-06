@@ -62,46 +62,51 @@ $(document).ready(function(){
 
 	$('#user-data-entry').submit(function(){
 		var userData = {};
+		userData['email'] = $('#email').val();
+		userData['password'] = $('#password').val();
+
 		userData['first_name'] = $('#first_name').val();
 		userData['last_name'] = $('#last_name').val();
-		userData['contact_info'] = {};
-		userData['contact_info']['email'] = $('#email').val();
-		userData['contact_info']['phone'] = $('#phone').val();
-		userData['contact_info']['street_address'] = {};
-		userData['contact_info']['street_address']['street'] = $('#street').val();
-		userData['contact_info']['street_address']['city'] = $('#city').val();
-		userData['contact_info']['street_address']['state'] = $('#state').val();
-		userData['contact_info']['street_address']['zip_code'] = $('#zipcode').val();
+		userData['phone'] = $('#phone').val();
+		
+		userData['street'] = $('#street').val();
+		userData['city'] = $('#city').val();
+		userData['state'] = $('#state').val();
+		userData['zip_code'] = $('#zipcode').val();
+		userData['twitter'] = $('#twitter').val();
+		userData['linkedin'] = $('#linkedin').val();
+		userData['website'] = $('#personal_site').val();
+
+		userData['employers'] = [];
 		userData['schools'] = [];
-		userData['experience'] = [];
-		userData['skill'] = [];
+		userData['skills'] = [];
 		userData['accomplishments'] = [];
 
 		/*reading input from employer blocks*/
 		var employer_blocks = $('.employer_block');
-		employer_blocks.each(function(index, employer){
+		employer_blocks.each(function(index, this_employer){
 			
 			/*start date formatting */
-			var startDate = $(employer).find('input.start_date_ex').val();
+			var startDate = $(this_employer).find('input.start_date_ex').val();
 			var formattedStart = startDate.slice(5,7)+startDate.slice(2,4);			
 
 			/*end date formatting*/
-			var endDate = $(employer).find('input.end_date_ex').val();
+			var endDate = $(this_employer).find('input.end_date_ex').val();
 			var formattedEnd = endDate.slice(5,7)+endDate.slice(2,4);
 
 			/*parsing through responsiblities array*/
 			resps = [];
-			$(employer).find('input.responsibilities').each(function(index1, resp){
+			$(this_employer).find('input.responsibilities').each(function(index1, resp){
 				resps.push($(resp).val());
 			});
 
 			userData.employers.push({
-				'employer' : $(employer).find('input.employer').val(),
-				'location' : $(employer).find('input.location').val(),
-				'position' : $(employer).find('input.position').val(),
-				'project' : $(employer).find('input.project').val(),
-				'start' : formattedStart,
-				'end' : formattedEnd,
+				'organization' 	   : $(this_employer).find('input.organization').val(),
+				'job_location' 	   : $(this_employer).find('input.location').val(),
+				'project' 		   : $(this_employer).find('input.project').val(),
+				'role' 		       : $(this_employer).find('input.position').val(),
+				'start_month_year' : formattedStart,
+				'end_month_year'   : formattedEnd,
 				'responsibilities' : resps
 			});
 		});
@@ -118,38 +123,38 @@ $(document).ready(function(){
 			var formattedEnd = endDate.slice(5,7)+endDate.slice(2,4);
 
 			userData.schools.push({
-				'school' : $(this_school).find('input.school').val(),
-				'degree' : $(this_school).find('input.degree').val(),
-				'major'  : $(this_school).find('input.major').val(),
-				'minor'  : $(this_school).find('input.minor').val(),
-				'start'  : formattedStart,
-				'end'    : formattedEnd,
-				'gpa'    : $(this_school).find('input.gpa').val()
+				'school_name' 		: $(this_school).find('input.school').val(),
+				'degree'      		: $(this_school).find('input.degree').val(),
+				'major'  	  		: $(this_school).find('input.major').val(),
+				'minor'  	  		: $(this_school).find('input.minor').val(),
+				'start_month_year'  : formattedStart,
+				'end_month_year'    : formattedEnd,
+				'gpa'         		: $(this_school).find('input.gpa').val()
 			});
 		});
 
 		/*reading input from skills blocks*/
 		var skills_blocks = $('.skill_block');
-		skills_blocks.each(function(index, skill){
+		skills_blocks.each(function(index, this_skill){
 			userData.skills.push({
-				'skill' 		 : $(skill).find('input.skill').val(),
-				'category' 		 : $(skill).find('input.category').val(),
-				'yrs_skill_exp'  : $(skill).find('input.yrs_skill_exp').val()
+				'skill_title' 		 : $(this_skill).find('input.skill').val(),
+				'skill_category'     : $(this_skill).find('input.category').val(),
+				'yrs_skill_exp'      : $(this_skill).find('input.yrs_skill_exp').val()
 			});
 		});
 
 
 		/*reading input from accomplishments blocks*/
 		var accomplishments_blocks = $('.accomplishment_block');
-		accomplishments_blocks.each(function(index, accomplishment){
+		accomplishments_blocks.each(function(index, this_accomplishment){
 
 			var date = '';
 			var formattedDate = date.slice(5,7) + date.slice(2,4);	
 
 			userData.accomplishments.push({
-				'accomplishment' : $(accomplishment).find('input.accomplishment').val(),
-				'accomp_descrip' : $(accomplishment).find('input.accomp_descrip').val(),
-				'date_accomp'  : $(accomplishment).find('input.date_accomp').val()
+				'accomplishment_name' : $(this_accomplishment).find('input.accomplishment').val(),
+				'accomp_descrip' 	  : $(this_accomplishment).find('input.accomp_descrip').val(),
+				'accomp_date'    	  : formattedDate
 			});
 		});
 	
@@ -157,21 +162,21 @@ $(document).ready(function(){
 		console.log(userData);
 
 /* Submitting to Server Submitted User Data Input */
-		var type = 'POST';
-		var path = 'api/resumes'
 		var JSON_data = JSON.stringify( { 'resume' : userData});
 
 		$.ajax({
-			type : type,
-			url  : 'api/resumes',
+			type : 'POST',
+			url  : '/',
+			success: function(data){
+				var x = (JSON.parse(data).message);
+				alert('Post for id#: ' + x + ' - Submitted!');
+			},
 			data : JSON_data
-		}).done(function(){
-			alert('Post Submitted');
-		});
+		}); 
 
 
 		return false;
-	}); /*end submit */
+	}); /* end submit click */
 	
 
 });/* end ready */

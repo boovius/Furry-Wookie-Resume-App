@@ -14,7 +14,7 @@ $(document).ready(function(){
 		$('#nextResButton').click(function(){
 			var id=$('#name').data('id');	
 			$('#name').removeData();
-			$.ajax('/api/resumes', {
+			$.ajax('/', {
 				complete : function (response){	
 					var totalResumes = response.responseJSON.length;
 					for (i = 0; i < totalResumes; i++){
@@ -23,6 +23,7 @@ $(document).ready(function(){
 								var resume = response.responseJSON[0];
 							else 
 								var resume = response.responseJSON[i+1];
+							resetResViewBoxes();
 							fillViewPage(resume);
 							break;
 						}/* end if */
@@ -36,7 +37,7 @@ $(document).ready(function(){
 		$('#prevResButton').click(function(){
 			var id=$('#name').data('id');	
 			$('#name').removeData();
-			$.ajax('/api/resumes', {
+			$.ajax('/', {
 				complete : function (response){	
 					var totalResumes = response.responseJSON.length;
 					for (i = 0; i < totalResumes; i++){
